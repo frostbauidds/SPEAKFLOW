@@ -1,0 +1,6 @@
+{
+  "name": "HoloArch — Live Speak-to-3D Hologram Whiteboard",
+  "description": "Speak or type to incrementally design interactive 3D holographic and 2D schematic system architectures powered by Gemini Flash.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Oxanium", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #030712;
+    color: #f1f5f9;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Subtle architectural HUD scrollbar */
+.holo-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.holo-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+.holo-scroll::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.28);
+  border-radius: 3px;
+}
+.holo-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* Real-time voice waveform animation (used only when microphone is actively capturing) */
+@keyframes voiceBar {
+  0%, 100% {
+    transform: scaleY(0.32);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.voice-bar {
+  animation: voiceBar 0.72s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-bar {
+    animation: none;
+    transform: scaleY(0.65);
+  }
+}
